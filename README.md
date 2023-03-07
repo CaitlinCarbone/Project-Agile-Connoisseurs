@@ -12,21 +12,25 @@
 </div>
 
 <!-- CONTACT -->
+
 ### Members:
-1. Cindy Zhang 
-2. Caitlin Carbone 
-3. Darius Truong 
-4. Peter Rauscher 
-5. Samuel Schmitt 
-6. Rosa Taveras 
-7. Lauren Ingraham 
+
+1. Cindy Zhang
+2. Caitlin Carbone
+3. Darius Truong
+4. Peter Rauscher
+5. Samuel Schmitt
+6. Rosa Taveras
+7. Lauren Ingraham
 
 Project Link: [Agile Connoisseurs](https://github.com/CaitlinCarbone/Project-Agile-Connoisseurs/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
+
 ## How To Use
+
 1. Clone the repo
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
@@ -39,12 +43,11 @@ Project Link: [Agile Connoisseurs](https://github.com/CaitlinCarbone/Project-Agi
    ```sh
    npm start
    ```
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
@@ -73,4 +76,4 @@ Project Link: [Agile Connoisseurs](https://github.com/CaitlinCarbone/Project-Agi
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[JQuery-url]: https://jquery.com

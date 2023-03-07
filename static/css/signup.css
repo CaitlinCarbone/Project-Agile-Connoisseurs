@@ -1,0 +1,43 @@
+html,
+body {
+    height: 100%;
+    background-color: #e3ebf8;
+}
+
+body {
+    display: flex;
+    align-items: center;
+}
+
+main {
+    padding: 1rem;
+}
+
+.text-small {
+    font-size: 85%;
+}
+
+.dropdown-toggle {
+    outline: 0;
+}
+
+.logo {
+    height: auto;
+    width: auto;
+    max-width: 15rem;
+}
+
+form.signin {
+    text-align: center;
+    max-width: 30rem;
+    margin: 0 auto;
+}
+
+.prevent-overlap:focus-within {
+    z-index: 2;
+}
+
+.signin input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
