@@ -1,6 +1,37 @@
+import {managers} from '../config/mongoCollections.js';
+import validation from "../utils/validation";
+import { loginUser } from './generalLoginGet.js';
 // add sign up and log out stuff for this type of user. add infromation to mongodb database (the config files are the database)
-
+const managersCollection = await managers();
 //sign up 
+const createManagerUser = async (username, password, email, firstName, lastName) => {
+    username = validation.checkString(username, 'Username');
+    password = validation.checkString(password, 'Password');
+    email = validation.checkEmail(email);
+    firstName = validation.checkString(firstName, 'First name');
+    lastName = validation.checkString(lastName, 'Last name');
+    authKey = validation.checkString(authKey, 'Authentication Key');
+    //auth key is a string that is given to the manager by our business to verify that they are a manager
+    //eventually find a way to make sure that the auth key is valid
+
+    let user = {
+        username: username,
+        password: password,
+        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        usertype: "manager"
+    };
+    
+    const newInsertInformation = await managersCollection.insertOne(user);
+    if (!newInsertInformation.insertedId) throw 'Insert failed!';
+    user._id = newInsertInformation.insertedId;
+    return await getmanagersUserById(newInsertInformation.insertedId.toString());
+}
+//login user
+const loginManagerUser = async (userOrEmail, password) => {
+    return loginUser(userOrEmail, password, "manager");
+}
 
 //delete user
 
