@@ -1,13 +1,3 @@
-
-## Members:
-1. Cindy Zhang
-2. Caitlin Carbone
-3. Darius Truong
-4. Peter Rauscher
-5. Samuel Schmitt
-6. Rosa Taveras
-7. Lauren Ingraham
-
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 <!--
