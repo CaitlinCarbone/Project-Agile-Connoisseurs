@@ -9,12 +9,15 @@ const constructorMethod = (app) => {
   app.use("/contractor", contractorRoutes);
   app.use("/customer", customerRoutes);
   app.use("/manager", managerRoutes);
-  app.use("/profile", profileRoutes);
+  // app.use("/profile", profileRoutes);
   app.use("/sales", salesRoutes);
   app.get("/home", (req, res) => {
     res.sendFile(path.resolve("static/home.html"));
   });
-  app.get("/chooseuser", (req, res) => {
+  app.get("/profile", (req, res) => {
+    res.sendFile(path.resolve("static/profile.html"));
+  });
+  app.get("/chooseuserpage", (req, res) => {
     res.sendFile(path.resolve("static/chooseuserpage.html"));
   });
   app.use("/login", (req, res) => {

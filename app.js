@@ -15,7 +15,7 @@ app.use(express.static("static"));
 configRoutes(app);
 
 // Bootstrap the application
-let port = process.env.PORT || 8888;
+let port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server accessible at http://localhost:${port}`);
 });
