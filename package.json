@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec npm start"
+
   },
   "author": "Team 4 - Agile Connoisseurs",
   "license": "ISC",
@@ -13,6 +15,7 @@
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "nodemon": "^2.0.21",
     "prettier": "^2.8.4"
   }
 }
