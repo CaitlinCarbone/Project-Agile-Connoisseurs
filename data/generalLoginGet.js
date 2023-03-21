@@ -17,7 +17,7 @@ const loginUser = async (userOrEmail, password, usertype) => {
   password = validation.checkString(password, "Password");
   usertype = validation.checkString(usertype, "User type");
 
-  switch(usertype) {
+  switch (usertype) {
     case "manager":
       collectionToUse = managersCollection;
       break;

@@ -7,42 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Salesperson Home Page</title>
     <style>
-      body{
+      body {
         margin: 0px;
       }
-      .salesnav{
+      .salesnav {
         overflow: hidden;
         padding: 0px;
-        margin:0px;
+        margin: 0px;
         display: block;
-        background: #F5F5F5;
+        background: #f5f5f5;
         width: 100%;
       }
-      .salesnav ul{
+      .salesnav ul {
         list-style-type: none;
         padding: 0px;
         margin: 0px;
       }
-      .salesnav li{
+      .salesnav li {
         display: inline-block;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
         font-size: 16px;
       }
-      .salesnav a{
-        text-decoration: none; 
+      .salesnav a {
+        text-decoration: none;
         color: black;
       }
-      .salesnav a:hover{
-        color: #18A0FB;
+      .salesnav a:hover {
+        color: #18a0fb;
       }
 
-      button{
-        float:right;
+      button {
+        float: right;
         border-radius: 6px;
         border: 0;
-        background: #18A0FB;
+        background: #18a0fb;
         position: relative;
         width: 130px;
         height: 40px;
@@ -55,22 +55,26 @@
         padding: 18px;
         width: 33.33%;
         text-align: justify;
-        }
+      }
 
-    .row{
-        width:100%;
+      .row {
+        width: 100%;
         display: inline-flex;
         flex-wrap: nowrap;
-        }
+      }
 
-    #address, #fees, #date, #client, #title, #terms{
+      #address,
+      #fees,
+      #date,
+      #client,
+      #title,
+      #terms {
         display: block;
-    }
+      }
 
-    table{
+      table {
         width: 100%;
-    }
-
+      }
     </style>
   </head>
   <body>
@@ -80,7 +84,7 @@
           <a href="/salespersonhomepage.html">Sales</a>
         </li>
         <li>
-          <a href='/profile.html'>Profile</a>
+          <a href="/profile.html">Profile</a>
         </li>
         <li>
           <a href="/salesinvoice.html">Create Invoice</a>
@@ -88,48 +92,42 @@
       </ul>
     </nav>
     <section class="row">
-        <div class="col">
-            <label for="client">Client:</label>
-            <input type="text" id="clientText" name="client" required/>
-            <label for="address" id="address">Address:</label>
-            <textarea name="address" rows="4" cols="50"></textarea>
-        </div>
-        <div class="col">
-            <label for="title" id="title">Invoice Title:</label>
-            <input type="text" name="title" required/>
-        </div>
-        <div class="col">
-            <label for="terms" id="terms">Payment Terms:</label>
-            <select name="terms" required>
-                <option value="POR" selected>Pay on Receipt</option>
-                <option value="PIA">Pay in Advance</option>
-                <option value="EOM">End of Month</option>
-                <option value="Net30">Net 30</option>
-            </select>
-            <label for="fees" id="fees">Fees:</label>
-            <select>
-
-            </select>
-            <label for="date" id="date">Invoice Date:</label>
-            <input type="date" name="date">
-        </div>
-    
+      <div class="col">
+        <label for="client">Client:</label>
+        <input type="text" id="clientText" name="client" required />
+        <label for="address" id="address">Address:</label>
+        <textarea name="address" rows="4" cols="50"></textarea>
+      </div>
+      <div class="col">
+        <label for="title" id="title">Invoice Title:</label>
+        <input type="text" name="title" required />
+      </div>
+      <div class="col">
+        <label for="terms" id="terms">Payment Terms:</label>
+        <select name="terms" required>
+          <option value="POR" selected>Pay on Receipt</option>
+          <option value="PIA">Pay in Advance</option>
+          <option value="EOM">End of Month</option>
+          <option value="Net30">Net 30</option>
+        </select>
+        <label for="fees" id="fees">Fees:</label>
+        <select></select>
+        <label for="date" id="date">Invoice Date:</label>
+        <input type="date" name="date" />
+      </div>
     </section>
     <section class="row">
-        <div class="row">
-            <table>
-                <tr>
-                    <th>Service</th>
-                    <th>Description</th>
-                    <th>Cost</th>
-                </tr>
-            </table>
-        </div>
+      <div class="row">
+        <table>
+          <tr>
+            <th>Service</th>
+            <th>Description</th>
+            <th>Cost</th>
+          </tr>
+        </table>
+      </div>
     </section>
     <button>Save for Later</button>
     <button>Post</button>
-    
-
-    
   </body>
 </html>

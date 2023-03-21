@@ -15,7 +15,7 @@ const exportedMethods = {
       address: null,
       city: null,
       state: null,
-      usertype: "customer"
+      usertype: "customer",
     };
     const newInsertInformation = await customersCollection.insertOne(user);
     if (!newInsertInformation.insertedId) throw "Insert failed!";
@@ -77,7 +77,7 @@ const exportedMethods = {
     if (!user) throw "User not found";
     return user;
   },
-  
+
   //change profile information
   async changeCustomerName(id, firstName, lastName) {
     id = validation.checkId(id);
@@ -91,8 +91,12 @@ const exportedMethods = {
     updatedUser.firstName = firstName;
     updatedUser.lastName = lastName;
 
-    const updateInfo = await customersCollection.updateOne({ _id: id }, { $set: updatedUser });
-    if (!updateInfo.matchedCount && !updateInfo.modifiedCount) throw "Update failed";
+    const updateInfo = await customersCollection.updateOne(
+      { _id: id },
+      { $set: updatedUser }
+    );
+    if (!updateInfo.matchedCount && !updateInfo.modifiedCount)
+      throw "Update failed";
     return await this.getCustomerUserById(id);
   },
 
@@ -110,8 +114,12 @@ const exportedMethods = {
     updatedUser.city = city;
     updatedUser.state = state;
 
-    const updateInfo = await customersCollection.updateOne({ _id: id }, { $set: updatedUser });
-    if (!updateInfo.matchedCount && !updateInfo.modifiedCount) throw "Update failed";
+    const updateInfo = await customersCollection.updateOne(
+      { _id: id },
+      { $set: updatedUser }
+    );
+    if (!updateInfo.matchedCount && !updateInfo.modifiedCount)
+      throw "Update failed";
     return await this.getCustomerUserById(id);
   },
 
@@ -125,12 +133,15 @@ const exportedMethods = {
     const updatedUser = currUser;
     updatedUser.password = password;
 
-    const updateInfo = await customersCollection.updateOne({ _id: id }, { $set: updatedUser });
-    if (!updateInfo.matchedCount && !updateInfo.modifiedCount) throw "Update failed";
+    const updateInfo = await customersCollection.updateOne(
+      { _id: id },
+      { $set: updatedUser }
+    );
+    if (!updateInfo.matchedCount && !updateInfo.modifiedCount)
+      throw "Update failed";
     return await this.getCustomerUserById(id);
   },
-
-}
+};
 //delete user
 
 // add sign up and log out stuff for this type of user. add infromation to mongodb database (the config files are the database)
@@ -138,8 +149,5 @@ const exportedMethods = {
 //sign up
 
 //delete user
-
-
-
 
 export default exportedMethods;

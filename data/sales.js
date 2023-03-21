@@ -1,7 +1,7 @@
 import { sales } from "../config/mongoCollections.js";
 import validation from "../utils/validation";
 import { loginUser } from "./user";
-import {projectData, customerData} from "./index";
+import { projectData, customerData } from "./index";
 // add sign up and log out stuff for this type of user. add infromation to mongodb database (the config files are the database)
 const salesCollection = await sales();
 //sign up
@@ -55,25 +55,51 @@ const exportedMethods = {
   //creates customer with no data (customer adds data later)
   //project contains various data and the customer id
   //returns updated user info in JSON
-  async addProjectToSalesUser(id, projectName, projectDescription, projectType, projectStatus, projectBudget, projectStartDate, projectEndDate, requiredDocuments, optionalCustomerData) {
+  async addProjectToSalesUser(
+    id,
+    projectName,
+    projectDescription,
+    projectType,
+    projectStatus,
+    projectBudget,
+    projectStartDate,
+    projectEndDate,
+    requiredDocuments,
+    optionalCustomerData
+  ) {
     id = validation.checkId(id);
     const user = await salesCollection.findOne({ _id: id });
     if (!user) throw "User not found";
 
     //create customer if customer isn't passed in
     let customer = optionalCustomerData;
-    if(!customer){
+    if (!customer) {
       customer = await customerData.createCustomerNoData();
-      if(!customer) throw "Customer not created successfully when initiating project";
+      if (!customer)
+        throw "Customer not created successfully when initiating project";
     }
 
-    const newProject = await projectData.createProject(projectName, projectDescription, projectType, projectStatus, projectBudget, projectStartDate, projectEndDate, requiredDocuments, customer);
+    const newProject = await projectData.createProject(
+      projectName,
+      projectDescription,
+      projectType,
+      projectStatus,
+      projectBudget,
+      projectStartDate,
+      projectEndDate,
+      requiredDocuments,
+      customer
+    );
     user.projects.push(newProject);
 
-    const updatedInfo = await salesCollection.updateOne({ _id: id }, {$set: user});
-    if (!updatedInfo.matchedCount && !updatedInfo.modifiedCount) throw "Update failed";
+    const updatedInfo = await salesCollection.updateOne(
+      { _id: id },
+      { $set: user }
+    );
+    if (!updatedInfo.matchedCount && !updatedInfo.modifiedCount)
+      throw "Update failed";
     return await getSalesUserById(id);
-  }
+  },
 };
 //delete user
 
@@ -84,8 +110,5 @@ const exportedMethods = {
 //delete user
 
 //change profile information
-
-
-
 
 export default exportedMethods;
