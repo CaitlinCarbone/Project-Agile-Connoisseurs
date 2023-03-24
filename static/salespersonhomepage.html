@@ -6,15 +6,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Salesperson Home Page</title>
+    <style>
+      body{
+        margin: 0px;
+      }
+      .salesnav{
+        overflow: hidden;
+        padding: 0px;
+        margin:0px;
+        display: block;
+        background: #F5F5F5;
+        width: 100%;
+      }
+      .salesnav ul{
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+      }
+      .salesnav li{
+        display: inline-block;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 16px;
+      }
+      .salesnav a{
+        text-decoration: none; 
+        color: black;
+      }
+      .salesnav a:hover{
+        color: #18A0FB;
+      }
+      button{
+        float:right;
+        border-radius: 6px;
+        border: 0;
+        background: #18A0FB;
+        position: relative;
+        width: 130px;
+        height: 40px;
+        color: white;
+        margin-right: 16px;
+      }
+
+    </style>
   </head>
   <body>
-    <nav>
+    <nav class="salesnav">
       <ul>
         <li>
-          <button onclick="location.href='http://localhost:3000/profile'">Profile</button>
+          <a href="/salespersonhomepage.html">Sales</a>
+        </li>
+        <li>
+          <a href='/profile.html'>Profile</a>
+        </li>
+        <li>
+          <a href="/salesbills.html">Manage Bills</a>
         </li>
       </ul>
     </nav>
-    <p>Salesperson Home Page</p>
+    <div>
+      <p>Open Projects</p>
+      <button onclick="location.href='/newproject.html'">Create Project</button>
+    </div>
+    
+
+    
   </body>
 </html>
