@@ -17,16 +17,21 @@ const loginUser = async (userOrEmail, password, usertype) => {
   password = validation.checkString(password, "Password");
   usertype = validation.checkString(usertype, "User type");
 
-  if (usertype == "manager") {
-    collectionToUse = managersCollection;
-  } else if (usertype == "contractor") {
-    collectionToUse = contractorsCollection;
-  } else if (usertype == "customer") {
-    collectionToUse = customersCollection;
-  } else if (usertype == "sales") {
-    collectionToUse = salesCollection;
-  } else {
-    throw "Error: User type invalid. Try again.";
+  switch(usertype) {
+    case "manager":
+      collectionToUse = managersCollection;
+      break;
+    case "contractor":
+      collectionToUse = contractorsCollection;
+      break;
+    case "customer":
+      collectionToUse = customersCollection;
+      break;
+    case "sales":
+      collectionToUse = salesCollection;
+      break;
+    default:
+      throw "Error: User type invalid. Try again.";
   }
 
   const user = await collectionToUse.findOne({

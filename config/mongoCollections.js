@@ -21,4 +21,5 @@ module.exports = {
   sales: getCollectionFn("sales"),
   managers: getCollectionFn("managers"),
   contractors: getCollectionFn("contractors"),
+  projects: getCollectionFn("projects"),
 };
