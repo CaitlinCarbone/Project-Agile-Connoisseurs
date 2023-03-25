@@ -33,6 +33,8 @@ const exportedMethods = {
     );
   },
   //login user
+  //Just checks if user exists and password is correct
+  //returns user info in JSON if successful
   async loginManagerUser(userOrEmail, password) {
     return loginUser(userOrEmail, password, "manager");
   },

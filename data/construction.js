@@ -1,5 +1,6 @@
 import { contractors } from "../config/mongoCollections";
 import validation from "../utils/validation";
+import { loginUser } from "./user";
 // add sign up and log out stuff for this type of user. add infromation to mongodb database (the config files are the database)
 const contractorsCollection = await contractors();
 //sign up
@@ -39,7 +40,8 @@ const exportedMethods = {
     );
   },
   //log in user(?)
-
+  //Just checks if user exists and password is correct
+  //returns user info in JSON if successful
   async loginContractorUser(userOrEmail, password) {
     return loginUser(userOrEmail, password, "contractor");
   },
