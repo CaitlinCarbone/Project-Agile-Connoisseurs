@@ -11,6 +11,7 @@ const constructorMethod = (app) => {
   app.use("/manager", managerRoutes);
   // app.use("/profile", profileRoutes);
   app.use("/sales", salesRoutes);
+  app.get("/", (req, res) => res.redirect("/home"));
   app.get("/home", (req, res) => {
     res.sendFile(path.resolve("static/home.html"));
   });
@@ -37,9 +38,6 @@ const constructorMethod = (app) => {
   });
   app.use("/contact", (req, res) => {
     res.sendFile(path.resolve("static/contactCustomerService.html"));
-  });
-  app.use("/customerBilling", (req, res) => {
-    res.sendFile(path.resolve("static/customerBilling.html"));
   });
   app.use("/contactHome", (req, res) => {
     res.sendFile(path.resolve("static/contactHome.html"));

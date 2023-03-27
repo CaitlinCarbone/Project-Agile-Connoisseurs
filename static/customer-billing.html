@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Billing Information</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/customer-billing.css" />
+  </head>
+
+  <body class="text-container">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/customer">Agile Solar Energy</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/customer/installation"
+                  >Installation</a
+                >
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/customer/billing">Billing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact Customer Service</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Log Out</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="row my-5">
+        <div class="col-12">
+          <h1 class="text-center">Billing Portal</h1>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header">
+              <h2>Current Month</h2>
+            </div>
+            <div class="card-body">
+              <p>Solar Power:</p>
+              <h4 class="mb-3">589 kWh</h4>
+              <p>Grid Power:</p>
+              <h4 class="mb-3">54 kWh</h4>
+              <p>Total Power Draw:</p>
+              <h4 class="mb-3">643 kWh</h4>
+              <a href="#" class="btn btn-primary">View Usage Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header">
+              <h2>Pay Balance</h2>
+            </div>
+            <div class="card-body">
+              <p>Your current balance is:</p>
+              <h3 class="mb-3">$162.53</h3>
+              <a href="#" class="btn btn-primary">Pay Now</a>
+              <a href="#" class="btn btn-primary">Schedule Payment</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header">
+              <h2>Past Usage Reports</h2>
+            </div>
+            <div class="card-body">
+              <p>Select a month to view usage details:</p>
+              <select class="form-select mb-3" aria-label="Select Month">
+                <option selected>Choose Month</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+              </select>
+              <a href="#" class="btn btn-primary">Generate Report</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

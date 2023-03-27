@@ -17,5 +17,5 @@ configRoutes(app);
 // Bootstrap the application
 let port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Server accessible at http://localhost:${port}`);
+  console.log(`Website accessible at http://localhost:${port}/home`);
 });
