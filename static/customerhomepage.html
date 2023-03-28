@@ -16,9 +16,9 @@
 
 	<body class="text-container">
 		<header>
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="/">My Website</a>
+					<a class="navbar-brand" href="/customer">Agile Solar Energy</a>
 					<button
 						class="navbar-toggler"
 						type="button"
@@ -36,48 +36,33 @@
 								<a class="nav-link" href="/installations">Installations</a>
 							</li>
 							<li class="nav-item active">
-								<a class="nav-link" href="/billing">Billing</a>
+								<a class="nav-link" href="/customerBilling">Billing</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="/contact">Contact Customer Service</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/logout">Log Out</a>
 							</li>
 						</ul>
 					</div>
 				</div>
 			</nav>
 		</header>
-
-		<main class="w-100 m-auto">
-			<h1 class="mb-4 text-center">Billing Information</h1>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="card mb-4">
-						<div class="card-body">
-							<h5 class="card-title">Basic Plan</h5>
-							<h6 class="card-subtitle mb-2 text-muted">Price: $19.99/month</h6>
-							<p class="card-text">
-								Includes unlimited usage of our basic features.
+		<div class="container">
+			<div class="row align-items-center vh-100">
+				<div class="col-6 mx-auto">
+					<div class="card shadow border">
+					  <img class="card-img-top" src="/img/logo.png" alt="Card image cap">
+						<div class="card-body d-flex flex-column align-items-center">
+							<h1 class="card-text">Welcome to the Customer Portal</h1>
+							<p class="card-text">Here you can view information about your installation, billing, and
+								contact customer service.
 							</p>
-							<a href="#" class="btn btn-primary">Sign up now</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="card mb-4">
-						<div class="card-body">
-							<h5 class="card-title">Premium Plan</h5>
-							<h6 class="card-subtitle mb-2 text-muted">Price: $29.99/month</h6>
-							<p class="card-text">
-								Includes unlimited usage of all our features.
-							</p>
-							<a href="#" class="btn btn-primary">Sign up now</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			<p class="text-center">
-				All prices are in US dollars and are subject to change without notice.
-			</p>
-		</main>
+		</div>
 	</body>
 </html>
