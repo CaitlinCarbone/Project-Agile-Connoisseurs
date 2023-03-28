@@ -7,6 +7,7 @@
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec npm start",
+    "format": "prettier --write .",
     "prepare": "husky install"
   },
   "author": "Team 4 - Agile Connoisseurs",
