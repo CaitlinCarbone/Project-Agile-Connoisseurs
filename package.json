@@ -7,8 +7,7 @@
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec npm start",
-    "format": "prettier --write .",
-    "prepare": "husky install"
+    "format": "prettier --write ."
   },
   "author": "Team 4 - Agile Connoisseurs",
   "license": "ISC",
@@ -19,11 +18,6 @@
     "nodemon": "^2.0.21"
   },
   "devDependencies": {
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.0",
     "prettier": "2.8.7"
-  },
-  "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
   }
 }
