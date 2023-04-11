@@ -1,11 +1,10 @@
-<!-- what you put in here will show on the contractors home page -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contractor Home Page</title>
+    <title>List of Customer</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -38,9 +37,7 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/contractor/listOfCustomers"
-                  >List of Customers</a
-                >
+                <a class="nav-link" href="/customers">List of Customers</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/logout">Log Out</a>
@@ -50,6 +47,28 @@
         </div>
       </nav>
     </header>
-    <h1>Active Projects</h1>
+
+    <div class="container"  id="featured-3" style="margin-top: 10px;">
+      <h2 class="pb-2 border-bottom">Active Customers</h2>
+    </div>
+    <div class="card w-75 mb-3" style="margin-left: 10%;">
+      <div class="card-body">
+        <h5 class="card-title">John Doe</h5>
+        <p class="card-text">
+          Project Address
+        </p>
+        <a href="#" class="btn btn-primary">View Project</a>
+      </div>
+    </div>
+
+    <div class="card w-75 mb-3" style="margin-left: 10%;">
+      <div class="card-body">
+        <h5 class="card-title">Bob Smith</h5>
+        <p class="card-text">
+          Project Address
+        </p>
+        <a href="#" class="btn btn-primary">View Project</a>
+      </div>
+    </div>
   </body>
 </html>
