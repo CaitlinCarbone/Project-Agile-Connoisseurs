@@ -1,6 +1,7 @@
 const contractorRoutes = require("./contractor");
 const customerRoutes = require("./customer");
 const managerRoutes = require("./manager");
+const contractFilesRoutes = require("./contractFiles");
 const profileRoutes = require("./profile");
 const salesRoutes = require("./sales");
 const path = require("path");
@@ -11,6 +12,7 @@ const constructorMethod = (app) => {
   app.use("/manager", managerRoutes);
   // app.use("/profile", profileRoutes);
   app.use("/sales", salesRoutes);
+  app.use("/contractUpload", contractFilesRoutes);
   app.get("/", (req, res) => res.redirect("/home"));
   app.get("/home", (req, res) => {
     res.sendFile(path.resolve("static/home.html"));
