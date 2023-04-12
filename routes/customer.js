@@ -9,5 +9,7 @@ router.get("/", (req, res) => {
 router.get("/billing", (req, res) => {
   res.sendFile(path.resolve("static/customer-billing.html"));
 });
-
+router.get("/payment", (req, res) => {
+  res.sendFile(path.resolve("static/customerPayment.html"));
+});
 module.exports = router;

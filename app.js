@@ -1,7 +1,11 @@
 const express = require("express");
+const { engine } = require("express-handlebars");
 var cors = require("cors");
 var cookieParser = require("cookie-parser");
 const app = express();
+app.engine(".hbs", engine({ extname: ".hbs" }));
+app.set("view engine", ".hbs");
+app.set("views", "./static/views");
 const configRoutes = require("./routes/index.js");
 
 // Server-wide middleware

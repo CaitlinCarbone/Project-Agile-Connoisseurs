@@ -1,0 +1,25 @@
+ul {
+  list-style-type: none;
+}
+
+li {
+  text-decoration: none;
+  float: right;
+}
+
+.bi {
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #fff;
+  border-radius: 0.75rem;
+}
