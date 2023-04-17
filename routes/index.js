@@ -37,6 +37,15 @@ const constructorMethod = (app) => {
   app.get("/salesProfile", (req, res) => {
     res.sendFile(path.resolve("static/sales-profile.html"));
   });
+  app.get("/customerProfile", (req, res) => {
+    res.sendFile(path.resolve("static/customer-profile.html"));
+  });
+  app.get("/managerProfile", (req, res) => {
+    res.sendFile(path.resolve("static/manager-profile.html"));
+  });
+  app.get("/contractorProfile", (req, res) => {
+    res.sendFile(path.resolve("static/contractor-profile.html"));
+  });
   app.get("/chooseuserpage", (req, res) => {
     res.sendFile(path.resolve("static/chooseuserpage.html"));
   });
@@ -44,7 +53,7 @@ const constructorMethod = (app) => {
     res.sendFile(path.resolve("static/login.html"));
   });
   app.use("/contact", (req, res) => {
-    res.sendFile(path.resolve("static/contactCustomerService.html"));
+    res.sendFile(path.resolve("static/customer-contactCustomerService.html"));
   });
   app.use("/contactHome", (req, res) => {
     res.sendFile(path.resolve("static/contactHome.html"));
