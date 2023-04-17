@@ -34,6 +34,9 @@ const constructorMethod = (app) => {
   app.get("/profile", (req, res) => {
     res.sendFile(path.resolve("static/profile.html"));
   });
+  app.get("/salesProfile", (req, res) => {
+    res.sendFile(path.resolve("static/sales-profile.html"));
+  });
   app.get("/chooseuserpage", (req, res) => {
     res.sendFile(path.resolve("static/chooseuserpage.html"));
   });
