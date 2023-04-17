@@ -12,76 +12,6 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-    <style>
-      body {
-        margin: 0px;
-      }
-      .salesnav {
-        overflow: hidden;
-        padding: 0px;
-        margin: 0px;
-        display: block;
-        background: #f5f5f5;
-        width: 100%;
-      }
-      .salesnav ul {
-        list-style-type: none;
-        padding: 0px;
-        margin: 0px;
-      }
-      .salesnav li {
-        display: inline-block;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 16px;
-      }
-      .salesnav a {
-        text-decoration: none;
-        color: black;
-      }
-      .salesnav a:hover {
-        color: #18a0fb;
-      }
-
-      button {
-        float: right;
-        border-radius: 6px;
-        border: 0;
-        background: #18a0fb;
-        position: relative;
-        width: 130px;
-        height: 40px;
-        color: white;
-        margin-right: 16px;
-      }
-
-      .col {
-        margin: 18px;
-        padding: 18px;
-        width: 33.33%;
-        text-align: justify;
-      }
-
-      .row {
-        width: 100%;
-        display: inline-flex;
-        flex-wrap: nowrap;
-      }
-
-      #address,
-      #fees,
-      #date,
-      #client,
-      #title,
-      #terms {
-        display: block;
-      }
-
-      table {
-        width: 100%;
-      }
-    </style>
   </head>
   <body>
     <header>
@@ -118,44 +48,108 @@
         </div>
       </nav>
     </header>
-    
-    <section class="row">
-      <div class="col">
-        <label for="client">Client:</label>
-        <input type="text" id="clientText" name="client" required />
-        <label for="address" id="address">Address:</label>
-        <textarea name="address" rows="4" cols="50"></textarea>
-      </div>
-      <div class="col">
-        <label for="title" id="title">Invoice Title:</label>
-        <input type="text" name="title" required />
-      </div>
-      <div class="col">
-        <label for="terms" id="terms">Payment Terms:</label>
-        <select name="terms" required>
-          <option value="POR" selected>Pay on Receipt</option>
-          <option value="PIA">Pay in Advance</option>
-          <option value="EOM">End of Month</option>
-          <option value="Net30">Net 30</option>
-        </select>
-        <label for="fees" id="fees">Fees:</label>
-        <select></select>
-        <label for="date" id="date">Invoice Date:</label>
-        <input type="date" name="date" />
-      </div>
-    </section>
-    <section class="row">
+    <form>
       <div class="row">
-        <table>
-          <tr>
-            <th>Service</th>
-            <th>Description</th>
-            <th>Cost</th>
-          </tr>
-        </table>
+        <div class="col">
+          <label for="inputCity">Client Name: </label>
+          <input type="text" class="form-control" placeholder="Client:">
+        </div>
+        <div class="col">
+          <label for="inputCity">Invoice Title: </label>
+          <input type="text" class="form-control" placeholder="Invoice Title:">
+        </div>
+        <div class="col">
+          <label for="terms" id="terms">Payment Terms:</label>
+          <select class="form-control">
+            <option value="POR" selected>Pay on Receipt</option>
+            <option value="PIA">Pay in Advance</option>
+            <option value="EOM">End of Month</option>
+            <option value="Net30">Net 30</option>
+          </select>
+        </div>
       </div>
-    </section>
-    <button>Save for Later</button>
-    <button>Post</button>
+      <div class="row">
+        <label for="inputAddress">Address: </label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="inputCity">City: </label>
+          <input type="text" class="form-control" placeholder="City:">
+        </div>
+        <div class="col">
+          <label for="inputZip">Zipcode: </label>
+          <input type="text" class="form-control" placeholder="Zipcode:">
+        </div>
+        <div class="col">
+          <label for="inputState">State</label>
+          <select id="inputState" class="form-control" >
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="date" id="date">Invoice Date:</label>
+          <input type="date" name="date"/>
+        </div>
+        <div class="col">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col">
+          <button type="submit" class="btn btn-primary">Save For Later</button>
+        </div>
+      </div>
+    </form>
   </body>
 </html>
