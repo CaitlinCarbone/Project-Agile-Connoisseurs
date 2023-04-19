@@ -1,7 +1,8 @@
-import { sales } from "../config/mongoCollections.js";
-import validation from "../utils/validation";
-import { loginUser } from "./user";
-import { projectData, customerData } from "./index";
+const {sales} = require("../config/mongoCollections");
+const validation = require("../utils/validation");
+const {loginUser} = require("./user");
+const {projectData, customerData} = require("./index");
+
 // add sign up and log out stuff for this type of user. add infromation to mongodb database (the config files are the database)
 const salesCollection = await sales();
 //sign up
@@ -111,4 +112,4 @@ const exportedMethods = {
 
 //change profile information
 
-export default exportedMethods;
+module.exports = exportedMethods;

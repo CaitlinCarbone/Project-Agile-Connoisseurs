@@ -1,6 +1,6 @@
-import { contractors } from "../config/mongoCollections";
-import validation from "../utils/validation";
-import { loginUser } from "./user";
+const {contractors} = require("../config/mongoCollections");
+const validation = require("../utils/validation");
+const {loginUser} = require("./user");
 // add sign up and log out stuff for this type of user. add infromation to mongodb database (the config files are the database)
 const contractorsCollection = await contractors();
 //sign up
@@ -63,4 +63,4 @@ const exportedMethods = {
 //delete user
 
 //change profile information
-export default exportedMethods;
+module.exports = exportedMethods;

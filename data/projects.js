@@ -1,5 +1,5 @@
-import { projects } from "../config/mongoCollections";
-import validation from "../utils/validation";
+const {projects} = require("../config/mongoCollections");
+const validation = require("../utils/validation");
 
 const projectsCollection = await projects();
 
@@ -79,4 +79,4 @@ const exportedMethods = {
   },
 };
 
-export default exportedMethods;
+module.exports = exportedMethods;

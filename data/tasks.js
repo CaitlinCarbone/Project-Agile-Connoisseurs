@@ -1,4 +1,4 @@
-import validation from "../utils/validation";
+const validation = require("../utils/validation");
 
 //task isn't stored in database, it's just a subdocument in the project document
 const exportedMethods = {
@@ -38,3 +38,5 @@ const exportedMethods = {
   //need to create more methods for tasks
   //edit, delete, etc.
 };
+
+module.exports = exportedMethods;

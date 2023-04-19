@@ -1,10 +1,8 @@
-import {
-  managers,
-  contractors,
-  customers,
-  sales,
-} from "../config/mongoCollections.js";
-import validation from "../utils/validation";
+const {managers} = require("../config/mongoCollections");
+const {contractors} = require("../config/mongoCollections");
+const {customers} = require("../config/mongoCollections");
+const {sales} = require("../config/mongoCollections");
+const validation = require("../utils/validation");
 
 const managersCollection = await managers();
 const contractorsCollection = await contractors();
@@ -44,4 +42,4 @@ const loginUser = async (userOrEmail, password, usertype) => {
   return user;
 };
 
-export { loginUser };
+module.exports = loginUser;

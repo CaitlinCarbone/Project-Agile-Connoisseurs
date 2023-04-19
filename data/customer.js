@@ -1,6 +1,6 @@
-import { customers } from "../config/mongoCollections";
-import validation from "./validationvalidation";
-import { loginUser } from "./user";
+const {customers} = require("../config/mongoCollections");
+const validation = require("../utils/validation");
+const loginUser = require("./user").loginUser;
 // add sign up and log out stuff for this type of user. add infromation to mongodb database (the config files are the database)
 const customersCollection = await customers();
 //sign up

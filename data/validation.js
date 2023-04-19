@@ -1,4 +1,4 @@
-import { ObjectId } from "mongodb";
+const {ObjectId} = require('mongodb');
 
 const exportedMethods = {
   checkId(id) {
@@ -44,4 +44,4 @@ const exportedMethods = {
   },
 };
 
-export default exportedMethods;
+module.exports = exportedMethods;

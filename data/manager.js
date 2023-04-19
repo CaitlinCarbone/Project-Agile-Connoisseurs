@@ -1,6 +1,6 @@
-import { managers } from "../config/mongoCollections.js";
-import validation from "../utils/validation";
-import { loginUser } from "./generalLoginGet.js";
+const { managers } = require("../config/mongoCollections");
+const validation = require("../utils/validation");
+const { loginUser } = require("./generalLoginGet");
 // add sign up and log out stuff for this type of user. add infromation to mongodb database (the config files are the database)
 const managersCollection = await managers();
 //sign up
@@ -56,4 +56,4 @@ const exportedMethods = {
 //delete user
 
 //change profile information
-export default exportedMethods;
+module.exports = exportedMethods;
