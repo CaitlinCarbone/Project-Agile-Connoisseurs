@@ -9,6 +9,9 @@ router.get("/", (req, res) => {
 router.get("/listOfcustomers", (req, res) => {
   res.sendFile(path.resolve("static/contractor-listOfCustomers.html"));
 });
+router.get("/scheduleInspection", (req, res) => {
+  res.sendFile(path.resolve("static/contractor-scheduleInspection.html"));
+});
 router.get("/contracts", (req, res) => {
   res.sendFile(path.resolve("static/contractor-contracts.html"));
 });
