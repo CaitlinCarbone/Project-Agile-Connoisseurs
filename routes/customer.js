@@ -12,4 +12,7 @@ router.get("/billing", (req, res) => {
 router.get("/payment", (req, res) => {
   res.sendFile(path.resolve("static/customerPayment.html"));
 });
+router.get("/savings", (req, res) => {
+  res.sendFile(path.resolve("static/customer-savings.html"));
+});
 module.exports = router;
