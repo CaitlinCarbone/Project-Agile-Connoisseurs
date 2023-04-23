@@ -15,5 +15,8 @@ router.get("/scheduleInspection", (req, res) => {
 router.get("/contracts", (req, res) => {
   res.sendFile(path.resolve("static/contractor-contracts.html"));
 });
+router.get("/installation", (req, res) => {
+  res.sendFile(path.resolve("static/contractor-installation.html"));
+});
 
 module.exports = router;
