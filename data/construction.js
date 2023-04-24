@@ -1,8 +1,8 @@
-const {contractors} = require("../config/mongoCollections");
-const validation = require("../utils/validation");
-const {loginUser} = require("./user");
+const { contractors } = require("../config/mongoCollections");
+const validation = require("./validation");
+const { loginUser } = require("./users");
 // add sign up and log out stuff for this type of user. add infromation to mongodb database (the config files are the database)
-const contractorsCollection = await contractors();
+
 //sign up
 const exportedMethods = {
   async createContractorUser(
@@ -32,6 +32,7 @@ const exportedMethods = {
       usertype: "contractor",
     };
 
+    const contractorsCollection = await contractors();
     const newInsertInformation = await contractorsCollection.insertOne(user);
     if (!newInsertInformation.insertedId) throw "Insert failed!";
     user._id = newInsertInformation.insertedId;
@@ -48,6 +49,7 @@ const exportedMethods = {
 
   async getContractorsUserById(id) {
     id = validation.checkId(id);
+    const contractorsCollection = await contractors();
     const user = await contractorsCollection.findOne({ _id: id });
     if (!user) throw "User not found";
     return user;
