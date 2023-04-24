@@ -15,4 +15,8 @@ router.get("/payment", (req, res) => {
 router.get("/savings", (req, res) => {
   res.sendFile(path.resolve("static/customer-savings.html"));
 });
+router.get("/installation", (req, res) => {
+  res.sendFile(path.resolve("static/customer-installation.html"));
+});
+
 module.exports = router;

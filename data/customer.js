@@ -1,4 +1,4 @@
-const {customers} = require("../config/mongoCollections");
+const {customers, projects} = require("../config/mongoCollections");
 const validation = require("../utils/validation");
 const loginUser = require("./user").loginUser;
 // add sign up and log out stuff for this type of user. add infromation to mongodb database (the config files are the database)
@@ -140,6 +140,13 @@ const exportedMethods = {
     if (!updateInfo.matchedCount && !updateInfo.modifiedCount)
       throw "Update failed";
     return await this.getCustomerUserById(id);
+  },
+
+  async getCustomerProjects(id) {
+    id = validation.checkId(id);
+    const user = await this.getCustomerUserById(id);
+    if (!user) throw "User not found";
+    return await projects().find({ customerId: id }).toArray();
   },
 };
 //delete user
