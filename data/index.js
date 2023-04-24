@@ -1,13 +1,9 @@
-const constDataFunctions = require("./construction");
-const custDataFunctions = require("./customer");
-const manDataFunctions = require("./manager");
-const salesDataFunctions = require("./sales");
-const projectFunctions = require("./project");
-
 module.exports = {
-    constructorData: constDataFunctions,
-    customerData: custDataFunctions,
-    managerData: manDataFunctions,
-    salesData: salesDataFunctions,
-    projectData: projectFunctions
+  userData: require("./users"),
+  // constructorData: require("./construction"),
+  // customerData: require("./customer"),
+  // managerData: require("./manager"),
+  // salesData: require("./sales"),
+  projectData: require("./projects"),
+  validation: require("./validation"),
 };

@@ -1,4 +1,6 @@
-const {ObjectId} = require('mongodb');
+const { ObjectId } = require("mongodb");
+
+const passwordRegex = /[^\s]{6,}$/;
 
 const exportedMethods = {
   checkId(id) {
@@ -10,7 +12,6 @@ const exportedMethods = {
     if (!ObjectId.isValid(id)) throw "Error: invalid object ID";
     return id;
   },
-
   checkString(strVal, varName) {
     if (!strVal) throw `Error: You must supply a ${varName}!`;
     if (typeof strVal === "number")
@@ -23,24 +24,27 @@ const exportedMethods = {
       throw `Error: ${strVal} is not a valid value for ${varName} as it only contains digits`;
     return strVal;
   },
-
   checkNumber(numVal, varName) {
     if (!numVal) throw `Error: You must supply a ${varName}!`;
     if (typeof numVal !== "number") throw `Error: ${varName} must be a number!`;
     if (numVal < 0) throw `Error: ${varName} must be a positive number!`;
     return numVal;
   },
-
   checkEmail(email) {
     if (!email) throw "Error: You must provide an email to search for";
     if (typeof email !== "string") throw "Error: email must be a string";
     email = email.trim().toLowerCase();
     let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (inputText.value.match(mailformat)) {
+    if (email.match(mailformat)) {
       return email;
     } else {
       throw "Error: invalid email";
     }
+  },
+  checkPassword(password) {
+    if (typeof password !== "string") throw "Must supply a password";
+    if (!passwordRegex.test(password))
+      throw "Password must be at least 6 characters long, and not contain any whitespace characters";
   },
 };
 
