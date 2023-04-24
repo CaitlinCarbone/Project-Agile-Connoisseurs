@@ -1,7 +1,5 @@
-const {projects} = require("../config/mongoCollections");
-const validation = require("../utils/validation");
-
-const projectsCollection = await projects();
+const { projects } = require("../config/mongoCollections");
+const validation = require("./validation");
 
 const exportedMethods = {
   async createProject(
@@ -51,7 +49,7 @@ const exportedMethods = {
       customer: customer,
       projectTasks: [],
     };
-
+    const projectsCollection = await projects();
     const newInsertInformation = await projectsCollection.insertOne(project);
     if (!newInsertInformation.insertedId) throw "Insert failed!";
     project._id = newInsertInformation.insertedId;
@@ -60,6 +58,7 @@ const exportedMethods = {
 
   async getProjectById(id) {
     id = validation.checkId(id);
+    const projectsCollection = await projects();
     const project = await projectsCollection.findOne({ _id: id });
     if (!project) throw "Project not found";
     return project;
@@ -74,6 +73,7 @@ const exportedMethods = {
     if (!project) throw "Project not found";
 
     project.projectTasks.push(taskId);
+    const projectsCollection = await projects();
     projectsCollection.updateOne({ _id: projectId }, { $set: project });
     return await this.getProjectById(projectId);
   },
