@@ -8,11 +8,14 @@ const customers = [
 ];
 
 router.get("/", (req, res) => {
-  res.render("manager/dashboard", { title: "Dashboard", layout: "manager" });
+  res.render("pages/manager/dashboard", {
+    title: "Dashboard",
+    layout: "manager",
+  });
 });
 
 router.get("/projects", (req, res) => {
-  res.render("manager/projects", {
+  res.render("pages/manager/projects", {
     title: "Manage Projects",
     layout: "manager",
     customers: customers,
@@ -20,7 +23,7 @@ router.get("/projects", (req, res) => {
 });
 
 router.get("/customers", (req, res) => {
-  res.render("manager/customers", {
+  res.render("pages/manager/customers", {
     title: "Manage Customers",
     layout: "manager",
     customers: customers,
