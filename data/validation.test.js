@@ -6,6 +6,22 @@ const validation = require("./validation");
         });
     })
 
+    //checkString
+    describe("Validation tests", () => {
+        test('checkID is valid', () => {
+            var varName;
+        expect(validation.checkString("varName", varName)).toBe('varName');
+        });
+    })
+
+    //checkNumber
+    describe("Validation tests", () => {
+        test('checkID is valid', () => {
+            var testNumber = 1;
+        expect(validation.checkString("varName", testNumber)).toBe('varName');
+        });
+    })
+
     //checkEmail tests
     describe("Validation tests", () => {
         test('checkEmail is not valid because it is empty', () => {
