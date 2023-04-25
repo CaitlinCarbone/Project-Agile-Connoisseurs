@@ -8,6 +8,8 @@ module.exports = {
     validation.checkEmail(email);
     validation.checkPassword(password);
     validation.checkPassword(confirmPassword);
+    if (password !== confirmPassword)
+      throw "Password and confirmation are not the same";
     const usersCollection = await users();
     const emailTaken = await usersCollection.findOne({
       email: email,

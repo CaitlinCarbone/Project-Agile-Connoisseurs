@@ -56,6 +56,13 @@ const exportedMethods = {
     return await getProjectById(newInsertInformation.insertedId.toString());
   },
 
+  async getAllProjects() {
+    const projectsCollection = await projects();
+    const allProjects = await projectsCollection.find({});
+    if (!allProjects) return [];
+    return allProjects.toArray();
+  },
+
   async getProjectById(id) {
     id = validation.checkId(id);
     const projectsCollection = await projects();

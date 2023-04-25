@@ -1,119 +1,154 @@
-  <body class="text-container">
-    <div class="container"  id="featured-3" style="margin-top: 10px;">
-      <h2 class="pb-2 border-bottom">Customers</h2>
-    </div>
+<div class="container" id="featured-3" style="margin-top: 10px;">
+  <h2 class="pb-2 border-bottom">Customers</h2>
+</div>
 
-    <!--Search Bar-->
-    <div class="input-group mb-3" style="margin-left: 10%;">
-      <form>
-        <div style="display: inline-block;">
-          <input class="form-control" type="text" placeholder="Search.." name="search">
-        </div>
-          <div style="float: right;">
-        <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-        </div>
-      </form>
+<!--Search Bar-->
+<div class="container">
+  <form class="inline-bar">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search"
+        name="search"
+      />
+      <button class="btn btn-outline-primary" type="submit"><i
+          class="fa fa-search"
+        ></i></button>
     </div>
+  </form>
+  <button
+    data-bs-toggle="modal"
+    data-bs-target="#customerModal"
+    class="btn btn-primary inline-bar"
+  ><i class="fa fa-user"></i>
+    &ensp;Create Customer Account</button>
+</div>
 
-    <!--Customer Cards-->
-    <div class="card w-75 mb-3" style="margin-left: 10%;">
-      <div class="card-body">
-        <h5 class="card-title">John Doe</h5>
-        <p class="card-text">
-          Project Address
-        </p>
-        <a href="#" class="btn btn-primary">View Project</a>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="customerModal"
+  tabindex="-1"
+  aria-labelledby="customerModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="customerModalLabel">Create Customer Account</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Customer Account Form -->
+        <form id="customerForm" method="POST" action="/manager/customers">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              name="firstName"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              name="lastName"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input
+              type="text"
+              class="form-control"
+              id="address"
+              name="address"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="city" class="form-label">City</label>
+            <input
+              type="text"
+              class="form-control"
+              id="city"
+              name="city"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="state" class="form-label">State</label>
+            <input
+              type="text"
+              class="form-control"
+              id="state"
+              name="state"
+              required
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Cancel</button>
+        <button type="submit" form="customerForm" class="btn btn-primary">Create
+          Account</button>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="card w-75 mb-3" style="margin-left: 10%;">
+<!--Customer Cards-->
+<div class="container">
+  {{#if error}}
+    <div class="alert alert-danger" role="alert">
+      {{error}}
+    </div>
+  {{/if}}
+  {{#each customers}}
+    <div class="card mb-3">
       <div class="card-body">
-        <h5 class="card-title">Marshal Hollar</h5>
-        <p class="card-text">
-          Project Address
-        </p>
+        <h3 class="card-title">{{this.firstName}} {{this.lastName}}</h3>
+        <h5 class="card-subtitle text-muted">{{this.email}}</h5>
+        <p class="card-text">{{this.address}}<br />{{this.city}},
+          {{this.state}}</p>
         <a href="#" class="btn btn-primary">View Project</a>
       </div>
     </div>
-    <div class="card w-75 mb-3" style="margin-left: 10%;">
-      <div class="card-body">
-        <h5 class="card-title">Kelly Wrath</h5>
-        <p class="card-text">
-          Project Address
-        </p>
-        <a href="#" class="btn btn-primary">View Project</a>
-      </div>
-    </div>
-    <div class="card w-75 mb-3" style="margin-left: 10%;">
-      <div class="card-body">
-        <h5 class="card-title">Nesta Archeon</h5>
-        <p class="card-text">
-          Project Address
-        </p>
-        <a href="#" class="btn btn-primary">View Project</a>
-      </div>
-    </div>
-    <div class="card w-75 mb-3" style="margin-left: 10%;">
-      <div class="card-body">
-        <h5 class="card-title">Kyle Smith</h5>
-        <p class="card-text">
-          Project Address
-        </p>
-        <a href="#" class="btn btn-primary">View Project</a>
-      </div>
-    </div>
-    <div class="card w-75 mb-3" style="margin-left: 10%;">
-      <div class="card-body">
-        <h5 class="card-title">Daniel Dux</h5>
-        <p class="card-text">
-          Project Address
-        </p>
-        <a href="#" class="btn btn-primary">View Project</a>
-      </div>
-    </div>
-    <div class="card w-75 mb-3" style="margin-left: 10%;">
-      <div class="card-body">
-        <h5 class="card-title">Emila Odea</h5>
-        <p class="card-text">
-          Project Address
-        </p>
-        <a href="#" class="btn btn-primary">View Project</a>
-      </div>
-    </div>
-    <div class="card w-75 mb-3" style="margin-left: 10%;">
-      <div class="card-body">
-        <h5 class="card-title">Crystal Lovelance</h5>
-        <p class="card-text">
-          Project Address
-        </p>
-        <a href="#" class="btn btn-primary">View Project</a>
-      </div>
-    </div>
-    <div class="card w-75 mb-3" style="margin-left: 10%;">
-      <div class="card-body">
-        <h5 class="card-title">Bella Beckam</h5>
-        <p class="card-text">
-          Project Address
-        </p>
-        <a href="#" class="btn btn-primary">View Project</a>
-      </div>
-    </div>
-    <div class="card w-75 mb-3" style="margin-left: 10%;">
-      <div class="card-body">
-        <h5 class="card-title">Michelle Nelly</h5>
-        <p class="card-text">
-          Project Address
-        </p>
-        <a href="#" class="btn btn-primary">View Project</a>
-      </div>
-    </div>
-    <div class="card w-75 mb-3" style="margin-left: 10%;">
-      <div class="card-body">
-        <h5 class="card-title">Alburt Lockheart</h5>
-        <p class="card-text">
-          Project Address
-        </p>
-        <a href="#" class="btn btn-primary">View Project</a>
-      </div>
-    </div>
-  </body>
+  {{/each}}
+</div>
+<script type="text/javascript" src="/js/customers.js"></script>

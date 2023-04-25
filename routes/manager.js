@@ -1,33 +1,67 @@
 const express = require("express");
 const router = express.Router();
+const { customerData, projectData } = require("../data");
 
-const customers = [
-  { id: 123, name: "John Jones" },
-  { id: 456, name: "Jill Jameson" },
-  { id: 789, name: "Jack Johnson" },
-];
-
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   res.render("pages/manager/dashboard", {
     title: "Dashboard",
     layout: "manager",
   });
 });
 
-router.get("/projects", (req, res) => {
+router.get("/projects", async (req, res) => {
+  const allCustomers = await customerData.getAllCustomers();
+  const allProjects = await projectData.getAllProjects();
   res.render("pages/manager/projects", {
     title: "Manage Projects",
     layout: "manager",
-    customers: customers,
+    customers: allCustomers,
+    projects: allProjects,
   });
 });
 
-router.get("/customers", (req, res) => {
+router.get("/customers", async (req, res) => {
+  const allCustomers = await customerData.getAllCustomers();
   res.render("pages/manager/customers", {
     title: "Manage Customers",
     layout: "manager",
-    customers: customers,
+    css: "/css/manager.css",
+    customers: allCustomers,
   });
+});
+
+router.post("/customers", async (req, res) => {
+  let { email, password, firstName, lastName, address, city, state } = req.body;
+  try {
+    const result = await customerData.createCustomer(
+      email,
+      password,
+      firstName,
+      lastName,
+      address,
+      city,
+      state
+    );
+    if (result.success) {
+      const allCustomers = await customerData.getAllCustomers();
+      return res.render("pages/manager/customers", {
+        title: "Manage Customers",
+        layout: "manager",
+        css: "/css/manager.css",
+        error: null,
+        customers: allCustomers,
+      });
+    } else throw `Failed to create user`;
+  } catch (e) {
+    const allCustomers = await customerData.getAllCustomers();
+    res.render("pages/manager/customers", {
+      title: "Manage Customers",
+      layout: "manager",
+      error: e,
+      css: "/css/manager.css",
+      customers: allCustomers,
+    });
+  }
 });
 
 module.exports = router;

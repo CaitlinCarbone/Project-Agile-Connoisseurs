@@ -1,152 +1,132 @@
-const {customers, projects} = require("../config/mongoCollections");
-const validation = require("../utils/validation");
-const loginUser = require("./user").loginUser;
-// add sign up and log out stuff for this type of user. add infromation to mongodb database (the config files are the database)
-const customersCollection = await customers();
-//sign up
-const exportedMethods = {
-  async createCustomerNoData() {
-    let user = {
-      username: null,
-      password: null,
-      email: null,
-      firstName: null,
-      lastName: null,
-      address: null,
-      city: null,
-      state: null,
-      usertype: "customer",
-    };
-    const newInsertInformation = await customersCollection.insertOne(user);
-    if (!newInsertInformation.insertedId) throw "Insert failed!";
-    user._id = newInsertInformation.insertedId;
-    return await getCustomerUserById(
-      newInsertInformation.insertedId.toString()
-    );
-  },
+const { users, projects } = require("../config/mongoCollections");
+const validation = require("./validation");
+const bcrypt = require("bcrypt");
 
-  async createCustomerUser(
-    username,
-    password,
+const exportedMethods = {
+  async createCustomer(
     email,
+    password,
     firstName,
     lastName,
     address,
     city,
     state
   ) {
-    username = validation.checkString(username, "Username");
-    password = validation.checkString(password, "Password");
-    email = validation.checkEmail(email);
-    firstName = validation.checkString(firstName, "First name");
-    lastName = validation.checkString(lastName, "Last name");
+    validation.checkPassword(password);
+    validation.checkEmail(email);
+    validation.checkString(firstName, "First name");
+    validation.checkString(lastName, "Last name");
+    validation.checkString(address, "Address");
+    validation.checkString(city, "City");
+    validation.checkString(state, "State");
 
-    address = validation.checkString(address, "Address");
-    city = validation.checkString(city, "City");
-    state = validation.checkString(state, "State");
-    //maybe in future check if city, state, and address are real
-
-    let user = {
-      username: username,
-      password: password,
+    const usersCollection = await users();
+    const existingUser = await usersCollection.findOne({
       email: email,
+    });
+    if (existingUser) throw "Email address in use";
+
+    const hash = await bcrypt.hash(password, 10);
+
+    const newInsertInformation = await usersCollection.insertOne({
+      email: email,
+      password: hash,
+      type: "customer",
       firstName: firstName,
       lastName: lastName,
       address: address,
       city: city,
       state: state,
-      usertype: "customer",
-    };
-    const newInsertInformation = await customersCollection.insertOne(user);
+    });
     if (!newInsertInformation.insertedId) throw "Insert failed!";
-    user._id = newInsertInformation.insertedId;
-    return await getCustomerUserById(
-      newInsertInformation.insertedId.toString()
-    );
-  },
-  //log in user
-  //Just checks if user exists and password is correct
-  //returns user info in JSON if successful
-  async loginCustomerUser(userOrEmail, password) {
-    return loginUser(userOrEmail, password, "customer");
+
+    return { success: true };
   },
 
-  async getCustomerUserById(id) {
-    id = validation.checkId(id);
-    const user = await customersCollection.findOne({ _id: id });
+  async getCustomer(id) {
+    validation.checkId(id);
+
+    const usersCollection = await users();
+    const user = await usersCollection.findOne({ type: "customer", _id: id });
     if (!user) throw "User not found";
+
     return user;
   },
 
   //change profile information
-  async changeCustomerName(id, firstName, lastName) {
-    id = validation.checkId(id);
-    firstName = validation.checkString(firstName, "First name");
-    lastName = validation.checkString(lastName, "Last name");
+  async updateCustomer(id, email, firstName, lastName, address, city, state) {
+    validation.checkId(id);
+    validation.checkEmail(email);
+    validation.checkString(firstName, "First name");
+    validation.checkString(lastName, "Last name");
+    validation.checkString(address, "Address");
+    validation.checkString(city, "City");
+    validation.checkString(state, "State");
 
-    const currUser = await this.getCustomerUserById(id);
-    if (!currUser) throw "User not found";
+    const currUser = await this.getCustomer(id);
+    if (!currUser) throw `User with id ${id} not found`;
 
-    const updatedUser = currUser;
-    updatedUser.firstName = firstName;
-    updatedUser.lastName = lastName;
-
-    const updateInfo = await customersCollection.updateOne(
-      { _id: id },
-      { $set: updatedUser }
+    const usersCollection = await users();
+    const updateInfo = await usersCollection.updateOne(
+      { _id: id, type: "customer" },
+      {
+        $set: {
+          email: email,
+          firstName: firstName,
+          lastName: lastName,
+          address: address,
+          city: city,
+          state: state,
+        },
+      }
     );
-    if (!updateInfo.matchedCount && !updateInfo.modifiedCount)
-      throw "Update failed";
-    return await this.getCustomerUserById(id);
-  },
+    if (!updateInfo.modifiedCount) throw "Update failed";
 
-  async changeCustomerAddress(id, address, city, state) {
-    id = validation.checkId(id);
-    address = validation.checkString(address, "Address");
-    city = validation.checkString(city, "City");
-    state = validation.checkString(state, "State");
-
-    const currUser = await this.getCustomerUserById(id);
-    if (!currUser) throw "User not found";
-
-    const updatedUser = currUser;
-    updatedUser.address = address;
-    updatedUser.city = city;
-    updatedUser.state = state;
-
-    const updateInfo = await customersCollection.updateOne(
-      { _id: id },
-      { $set: updatedUser }
-    );
-    if (!updateInfo.matchedCount && !updateInfo.modifiedCount)
-      throw "Update failed";
-    return await this.getCustomerUserById(id);
+    return { success: true };
   },
 
   async changeCustomerPassword(id, password) {
-    id = validation.checkId(id);
-    password = validation.checkString(password, "Password");
+    validation.checkId(id);
+    validation.checkPassword(password);
 
-    const currUser = await this.getCustomerUserById(id);
-    if (!currUser) throw "User not found";
+    const currUser = await this.getCustomer(id);
+    if (!currUser) throw `User with id ${id} not found`;
 
-    const updatedUser = currUser;
-    updatedUser.password = password;
+    const hash = await bcrypt.hash(password, 10);
 
-    const updateInfo = await customersCollection.updateOne(
-      { _id: id },
-      { $set: updatedUser }
+    const usersCollection = await users();
+    const updateInfo = await usersCollection.updateOne(
+      { _id: id, type: "customer" },
+      {
+        $set: {
+          password: hash,
+        },
+      }
     );
-    if (!updateInfo.matchedCount && !updateInfo.modifiedCount)
-      throw "Update failed";
-    return await this.getCustomerUserById(id);
+    if (!updateInfo.modifiedCount) throw "Changing password failed";
+    return { success: true };
   },
 
   async getCustomerProjects(id) {
-    id = validation.checkId(id);
-    const user = await this.getCustomerUserById(id);
+    validation.checkId(id);
+
+    const user = await this.getCustomer(id);
+    const projectsCollection = await projects();
     if (!user) throw "User not found";
-    return await projects().find({ customerId: id }).toArray();
+    const customerProjects = projectsCollection.find({
+      customerId: id,
+    });
+    if (!customerProjects) throw "No projects found for customer";
+    return customerProjects;
+  },
+
+  async getAllCustomers() {
+    const usersCollection = await users();
+    const allCustomers = await usersCollection.find({
+      type: "customer",
+    });
+    if (!allCustomers) return [];
+    return allCustomers.toArray();
   },
 };
 //delete user
@@ -157,4 +137,4 @@ const exportedMethods = {
 
 //delete user
 
-export default exportedMethods;
+module.exports = exportedMethods;

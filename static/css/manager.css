@@ -23,3 +23,13 @@ li {
   color: #fff;
   border-radius: 0.75rem;
 }
+
+.customer-search {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.inline-bar {
+  display: inline-block;
+  vertical-align: top;
+}

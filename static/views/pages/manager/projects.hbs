@@ -8,21 +8,24 @@
     <div class="col-md-4">
       <div class="card">
         <div class="card-header">
-          <h2>Start An Installation</h2>
+          <h4>Start An Installation</h4>
         </div>
         <div class="card-body">
           <div class="mb-3">
-            <label for="newCustomer" class="form-label"><strong
-              >Customer</strong></label>
+            <label for="newCustomer" class="form-label"><h5
+                class="card-subtitle"
+              >Customer</h5></label>
             <select id="newCustomer" class="form-select">
               <option selected>Choose Customer</option>
               {{#each customers}}
-                <option value="{{this.id}}">{{this.name}}</option>
+                <option value="{{this._id}}">{{this.firstName}}
+                  {{this.lastName}}</option>
               {{/each}}
             </select>
           </div>
-          <label for="requiredPhotos" class="form-label"><strong>Required Photo
-              Types</strong></label>
+          <label for="requiredPhotos" class="form-label"><h5
+              class="card-subtitle"
+            >Required Photo Types</h5></label>
           <div id="requiredPhotos" class="mb-3">
             <div class="form-check">
               <input
@@ -49,25 +52,28 @@
             </div>
           </div>
           <div class="mb-3">
-            <label for="newNotes" class="form-label"><strong
-              >Notes</strong></label>
+            <label for="newNotes" class="form-label"><h5
+                class="card-subtitle"
+              >Notes</h5></label>
             <textarea class="form-control" id="newNotes" rows="3"></textarea>
           </div>
           <button onClick="" class="btn btn-primary">Begin Install</button>
         </div>
       </div>
     </div>
-    {{#each customers}}
+    {{#each projects}}
       <div class="col-md-4">
         <div class="card">
           <div class="card-header">
-            <h2>Install for {{this.name}}</h2>
+            <h4 class="card-title">Installation for
+              {{this.firstName}}
+              {{this.lastName}}</h4>
           </div>
           <div class="card-body">
-            <p>Progress:</p>
-            <p>Started</p>
-            <p>Notes:</p>
-            <p>N/A</p>
+            <h5 class="card-subtitle">Progress:</h5>
+            <p class="card-text">Started</p>
+            <h5 class="card-subtitle">Notes:</h5>
+            <p class="card-text">N/A</p>
           </div>
         </div>
       </div>
