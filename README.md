@@ -49,3 +49,11 @@ Github Link: [Agile Connoisseurs](https://github.com/CaitlinCarbone/Project-Agil
    npm start
    ```
 2. The website is now running on [http://localhost:3000](http://localhost:3000)
+
+### Running Unit Tests
+
+1. This project uses Jest as a testing framework
+   ```bash
+      cd Project-Agile-Connoisseurs
+      npm test
+      ```
