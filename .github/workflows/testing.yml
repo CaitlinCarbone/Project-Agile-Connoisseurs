@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: CI/CD Testing
 
 # This action works with pull requests and pushes
 on:
@@ -20,10 +20,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "16.18.x"
-      - run: npm ci
-      - run: npm run format
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Apply formatting changes
-          branch: ${{ github.head_ref }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests with Jest
+        run: npm test
