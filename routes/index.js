@@ -27,6 +27,9 @@ const constructorMethod = (app) => {
   app.get("/salesinvoice", (req, res) => {
     res.sendFile(path.resolve("static/salesinvoice.html"));
   });
+  app.get("/salesAnalytics", (req, res) => {
+    res.sendFile(path.resolve("static/sales-analytics.html"));
+  });
   app.get("/profile", (req, res) => {
     res.sendFile(path.resolve("static/profile.html"));
   });
