@@ -88,8 +88,43 @@
       </nav>
     </header>
     <div class="container px-4 py-5" id="featured-3">
-      <h2 class="pb-2 border-bottom">Require Documents</h2>
-      <div></div>
+      <h2 class="pb-2 border-bottom">Required Documents</h2>
+      <div class="container">
+        <h1>Upload House Insurance Information</h1>
+        <form action="" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="project_photos">Document:</label>
+            <input
+              type="file"
+              class="form-control-file"
+              id="project_photos"
+              name="project_photos[]"
+              multiple
+            />
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Upload Document</button>
+        </form>
+      </div>
+      <br>
+      <br>
+      <div class="container">
+        <h1>Upload Signed Contract</h1>
+        <form action="" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="project_photos">Document:</label>
+            <input
+              type="file"
+              class="form-control-file"
+              id="project_photos"
+              name="project_photos[]"
+              multiple
+            />
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Upload Document</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>

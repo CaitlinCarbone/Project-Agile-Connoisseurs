@@ -6,6 +6,9 @@ const { customerData } = require("../data");
 router.get("/", async (req, res) => {
   res.sendFile(path.resolve("static/salespersonhomepage.html"));
 });
+router.get("/viewProgress", (req, res) => {
+  res.sendFile(path.resolve("static/sales-activeProjectsViewProgress.html"));
+});
 
 router.get("/customers", async (req, res) => {
   const allCustomers = await customerData.getAllCustomers();
