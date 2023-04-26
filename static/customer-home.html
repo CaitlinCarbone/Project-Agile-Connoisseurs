@@ -12,6 +12,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/customerhomepage.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   </head>
 
   <body class="text-container">
@@ -76,8 +77,23 @@
         </div>
       </nav>
     </header>
+
+    <script>
+      $(document).ready(
+        setTimeout(function () {
+          $("#notification").fadeIn(1000, function () {
+            setTimeout(function () {
+              $("#notification").fadeOut(1000);
+            }, 5000);
+          });
+        }, 3000)
+      );
+    </script>
     <div class="container px-4 py-5" id="featured-3">
       <h2 class="pb-2 border-bottom">Welcome back, Valued Customer!</h2>
+      <div class="alert alert-success" id="notification" style="display: none">
+        Good news! Your installation is ready to use.
+      </div>
       <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
         <div class="feature col">
           <div class="feature-icon bg-primary bg-gradient">
