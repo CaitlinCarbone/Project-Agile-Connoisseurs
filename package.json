@@ -7,7 +7,8 @@
     "start": "node app.js",
     "test": "jest",
     "dev": "nodemon --exec npm start",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "seed": "node tasks/seed.js"
   },
   "author": "Team 4 - Agile Connoisseurs",
   "license": "ISC",
