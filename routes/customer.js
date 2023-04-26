@@ -19,5 +19,8 @@ router.get("/savings", (req, res) => {
 router.get("/installation", (req, res) => {
   res.sendFile(path.resolve("static/customer-installation.html"));
 });
+router.get("/contact", (req, res) => {
+  res.sendFile(path.resolve("static/customer-contactCustomerService.html"));
+});
 
 module.exports = router;
